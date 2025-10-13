@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Ερωτήσεις Κατανόησης</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(180deg, #f5f8fc 0%, #e2eaf7 100%);
+      color: #003366;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #334;
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .chapter {
+      position: relative;
+      display: inline-block;
+    }
+
+    .chapter a {
+      text-decoration: none;
+      background: #1976d2;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+
+    .chapter a:hover {
+      background: #0d47a1;
+      transform: translateY(-2px);
+    }
+
+    /* Tooltip box */
+    .tooltip {
+      visibility: hidden;
+      opacity: 0;
+      width: 240px;
+      background-color: #003366;
+      color: #fff;
+      text-align: left;
+      border-radius: 10px;
+      padding: 10px;
+      position: absolute;
+      z-index: 1;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: opacity 0.3s;
+      font-size: 14px;
+      line-height: 1.4em;
+    }
+
+    .tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -6px;
+      border-width: 6px;
+      border-style: solid;
+      border-color: #003366 transparent transparent transparent;
+    }
+
+    .chapter:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ερωτήσεις Κατανόησης</h1>
+  <p>Επίλεξε κεφάλαιο για να ξεκινήσεις το τεστ:</p>
+
+  <div class="menu">
+    <div class="chapter">
+      <a href="#" target="_blank">Κεφάλαιο 1</a>
+      <div class="tooltip">Εισαγωγή στη δομή του οργανισμού και στις βασικές αρχές επαγγελματικής συμπεριφοράς.</div>
+    </div>
+
+    <div class="chapter">
+      <a href="#" target="_blank">Κεφάλαιο 2</a>
+      <div class="tooltip">Αναλύονται οι μορφές επικοινωνίας και οι βασικές δεξιότητες ενεργητικής ακρόασης.</div>
+    </div>
+
+    <div class="chapter">
+      <a href="#" target="_blank">Κεφάλαιο 3</a>
+      <div class="tooltip">Παρουσιάζονται οι τεχνικές ομαδικής συνεργασίας και η διαχείριση συγκρούσεων.</div>
+    </div>
+
+    <div class="chapter">
+      <a href="#" target="_blank">Κεφάλαιο 4</a>
+      <div class="tooltip">Αναλύεται η σημασία της εξυπηρέτησης πελατών και της επαγγελματικής εικόνας.</div>
+    </div>
+
+    <div class="chapter">
+      <a href="#" target="_blank">Κεφάλαιο 5</a>
+      <div class="tooltip">Εστιάζει στη διαχείριση χρόνου και στον προγραμματισμό εργασιών.</div>
+    </div>
+
+    <div class="chapter">
+      <a href="#" target="_blank">Κεφάλαιο 6</a>
+      <div class="tooltip">Περιγράφει τις αρχές ομαδικής ηγεσίας και τον ρόλο του συντονιστή.</div>
+    </div>
+
+    <div class="chapter">
+      <a href="#" target="_blank">Κεφάλαιο 7</a>
+      <div class="tooltip">Αναλύει τις τεχνικές πώλησης, το upselling και τη διαχείριση παραπόνων.</div>
+    </div>
+
+    <div class="chapter">
+      <a href="#" target="_blank">Κεφάλαιο 8</a>
+      <div class="tooltip">Συνοψίζει τις βασικές αρχές επαγγελματικής συμπεριφοράς, επικοινωνίας και εκπαίδευσης προσωπικού.</div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Εκπαιδευτικό Υλικό – Ερωτήσεις Κατανόησης
+  </footer>
+</body>
+</html>
