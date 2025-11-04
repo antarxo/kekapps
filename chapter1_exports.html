@@ -3,99 +3,266 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Κεφάλαιο 1 — Μέθοδοι Εξαγωγών</title>
+  <title>Μέθοδοι Εξαγωγών — Περίληψη Κεφαλαίου 1</title>
   <style>
     :root{
-      --bg:#f7f9fb;--card:#ffffff;--accent:#0b6e4f;--accent-2:#00704a;--muted:#6b7280;
-      --radius:14px;--shadow:0 6px 24px rgba(11,22,38,0.08);--maxw:940px;
+      --bg:#f7f9fb;
+      --card:#ffffff;
+      --accent:#0b6e4f;
+      --muted:#6b7280;
+      --maxw:900px;
+      --radius:14px;
+      --glass: rgba(11,110,79,0.06);
+      --accent-2:#145c4a;
+      --shadow: 0 6px 24px rgba(11,22,38,0.08);
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#eef6f2);color:#0f1724;line-height:1.7;padding:20px;display:flex;justify-content:center}
-    .wrap{max-width:var(--maxw);width:100%}
-    header.site{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:22px;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:22px;text-align:center}
-    header.site h1{color:#ffeb3b;}
-    main.card{background:var(--card);padding:24px;border-radius:var(--radius);box-shadow:var(--shadow)}
-    h1,h2,h3{color:var(--accent-2)}
-    nav.toc{background:#f5fbf8;border:1px solid #e4efe9;padding:14px;border-radius:10px;margin-bottom:20px}
-    nav.toc a{display:inline-block;margin-right:12px;font-size:.9rem;color:#0b3b2f;text-decoration:none}
-    nav.toc a:hover{text-decoration:underline}
-    .faq-ans{background:#f8fffa;border-left:4px solid var(--accent-2);padding:10px;border-radius:8px;margin:10px 0}
-    .justification{font-size:.9rem;color:#0b3b2f;margin-top:4px}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg,var(--bg),#eef6f2);
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.58;
+      padding:24px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{ width:100%; max-width:var(--maxw); }
+    header.site{
+      background: linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#fff; padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); margin-bottom:18px;
+    }
+    header h1{margin:0;font-size:1.25rem;letter-spacing:0.2px}
+    header p{margin:6px 0 0;font-size:0.9rem;opacity:0.92}
+    main.card{ background:var(--card); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); }
+    .meta{ display:flex; gap:12px; align-items:center; margin-bottom:12px; flex-wrap:wrap; }
+    .tag{ background:var(--glass); color:var(--accent-2); padding:6px 10px; border-radius:999px; font-size:0.85rem; font-weight:600; }
+    .intro{ font-size:0.98rem; color:var(--muted); margin-bottom:18px; }
+    section{margin-bottom:18px;}
+    h2{ color:var(--accent-2); margin:0 0 8px 0; font-size:1.05rem; }
+    h3{ margin:8px 0 6px 0; color:#0b3b2f; font-size:0.98rem }
+    p{margin:8px 0;font-size:0.95rem;color:#0f1724}
+    ul{margin:8px 0 8px 18px}
+    li{margin:6px 0}
+    .callout{ border-left:4px solid var(--accent); background:#fbfff9; padding:12px 14px; border-radius:8px; margin:12px 0; color:#083f2e; }
+    .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media (max-width:720px){ .two-col{grid-template-columns:1fr} header h1{font-size:1.1rem} }
+    @media print{ body{background:white;padding:6mm} header, .card{box-shadow:none} .tag{display:none} }
+    .small{font-size:0.86rem;color:var(--muted)}
+    .foot{margin-top:10px;font-size:0.82rem;color:var(--muted)}
+    .quote{font-style:italic;color:#054735;background:linear-gradient(90deg,rgba(11,110,79,0.04),transparent);padding:10px;border-radius:8px}
+    /* Q&A */
+    .qa{border-top:1px solid #e5e7eb;padding-top:10px}
+    .q{font-weight:600}
+    .ans{margin-top:6px;padding:8px 10px;border-radius:10px;background:#f6faf8;border:1px solid #e3efe9}
+    .badge{display:inline-block;font-size:0.8rem;font-weight:700;padding:2px 8px;border-radius:999px;margin-right:8px}
+    .yes{background:#e7f7ef;color:#0b6e4f;border:1px solid #c6ead9}
+    .no{background:#fdecec;color:#9a1a1a;border:1px solid #f3c9c9}
+    .why{color:#374151;font-size:0.9rem;margin-top:4px}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header class="site">
-      <h1>Κεφάλαιο 1 — Μέθοδοι Εξαγωγών</h1>
-      <p>Αναλυτική θεωρία με υποενότητες και ερωτήσεις ΝΑΙ/ΟΧΙ στο τέλος.</p>
+    <header class="site" role="banner">
+      <h1>Μέθοδοι Εξαγωγών — Περίληψη Κεφαλαίου 1</h1>
+      <p>Συνοπτική, σύγχρονη και φιλική διάταξη — όλες οι βασικές έννοιες του κεφαλαίου σε μορφή άρθρου/ιστοσελίδας.</p>
     </header>
-    <main class="card">
-      <nav class="toc" aria-label="Πίνακας Περιεχομένων">
-        <strong>Περιεχόμενα:</strong>
-        <a href="#intro">1.1 Εισαγωγή</a>
-        <a href="#international">1.2 Οι εξαγωγές ως μέσο διεθνοποίησης</a>
-        <a href="#motives">1.3 Κίνητρα</a>
-        <a href="#methods">1.4 Είδη και Μέθοδοι</a>
-        <a href="#proscons">1.5 Πλεονεκτήματα και Κίνδυνοι</a>
-        <a href="#summary">1.6 Ανακεφαλαίωση</a>
-        <a href="#faq">Ερωτήσεις</a>
-      </nav>
+
+    <main class="card" role="main">
+      <div class="meta">
+        <div class="tag">Κεφάλαιο 1</div>
+        <div class="small">Θέμα: Μέθοδοι Εξαγωγών</div>
+        <div class="small">Στόχος: Κατανόηση κινήτρων, μεθόδων και προκλήσεων</div>
+      </div>
+
+      <p class="intro">
+        Αυτό το κείμενο αποδίδει συγκεντρωτικά το 1ο κεφάλαιο «Μέθοδοι Εξαγωγών». Η δομή είναι ξεκάθαρη — σκοπός, έννοιες-κλειδιά, είδη εξαγωγών, κίνητρα (ενδογενή/εξωγενή), μέθοδοι (άμεσες/έμμεσες), και τα κύρια πλεονεκτήματα/μειονεκτήματα. Στόχος: γρήγορη και ευχάριστη ανάγνωση, χωρίς παράλειψη ουσιωδών σημείων.
+      </p>
+      <a href="index.html" class="back-button">⟵ Επιστροφή στο μενού</a>
+
+      <!-- (όλο το υπάρχον περιεχόμενο σου, όπως ήταν) -->
+      <section id="purpose">
+        <h2>Σκοπός & Προσδοκώμενα Αποτελέσματα</h2>
+        <p>Το κεφάλαιο έχει ως στόχο να αναδείξει τις εξαγωγικές δραστηριότητες ως κύριο μέσο διεθνοποίησης των επιχειρήσεων, με ιδιαίτερη έμφαση στις μικρομεσαίες (ΜΜΕ). Εξηγεί τις μεθόδους άσκησης εξαγωγών, τα κίνητρα, τα εμπόδια, και την επίδραση των ΤΠΕ (Τεχνολογίες Πληροφορικής και Επικοινωνιών).</p>
+        <ul>
+          <li>Να γίνει κατανοητή η διάκριση άμεσων vs έμμεσων εξαγωγών.</li>
+          <li>Να περιγραφούν τα εσωτερικά και εξωτερικά κίνητρα που ωθούν στην εξαγωγική δραστηριότητα.</li>
+          <li>Να αναδειχτούν τα πλεονεκτήματα και τα ρίσκα που συνεπάγονται οι εξαγωγές.</li>
+          <li>Να τονιστεί ο ρόλος των ΜΜΕ και η ανάγκη συλλογής αξιόπιστων στατιστικών.</li>
+        </ul>
+      </section>
+
+      <section id="key-concepts">
+        <h2>Έννοιες-Κλειδιά</h2>
+        <p class="small">(Σύντομη επισκόπηση όρων που εμφανίζονται στο κεφάλαιο.)</p>
+        <ul>
+          <li>Εξαγωγές — διακίνηση προϊόντων/υπηρεσιών προς ξένες αγορές.</li>
+          <li>Διεθνοποίηση — προοδευτική επέκταση των επιχειρηματικών δραστηριοτήτων πέραν των εθνικών συνόρων.</li>
+          <li>Άμεσες εξαγωγές — ολόκληρη η εξαγωγική λειτουργία ελέγχεται από την επιχείρηση.</li>
+          <li>Έμμεσες εξαγωγές — χρήση μεσαζόντων/εταιρειών για την προώθηση στο εξωτερικό.</li>
+          <li>Τελωνειακοί & μη-τελωνειακοί φραγμοί, Ενδοεταιρικά/εξωεταιρικά εμπόδια.</li>
+          <li>ΤΠΕ / E-commerce — εργαλεία που μειώνουν κόστη και φραγμούς.</li>
+        </ul>
+      </section>
 
       <section id="intro">
         <h2>1.1 Εισαγωγή — Γιατί οι εξαγωγές</h2>
-        <p>Οι εξαγωγές αποτελούν τη βασικότερη μορφή διεθνοποίησης των επιχειρήσεων, διότι συνδέουν την εγχώρια παραγωγή με τη διεθνή ζήτηση χωρίς την ανάγκη ίδρυσης θυγατρικών στο εξωτερικό. Η διεθνοποίηση ενισχύει την ανταγωνιστικότητα, τη βιωσιμότητα και τη διαφοροποίηση του επιχειρηματικού κινδύνου.</p>
+        <p>Οι εξαγωγές αποτελούν την πλέον βασική και προσιτή μέθοδο διεθνοποίησης. Η σύγχρονη παγκοσμιοποίηση, η απλούστευση διασυνοριακών διαδικασιών και το internet έχουν αυξήσει τη σημασία τους. Επιχειρήσεις κάθε μεγέθους επιδιώκουν διεθνή παρουσία για αύξηση τζίρου, αξιοποίηση δυνατοτήτων παραγωγής και διαφοροποίηση ρίσκου.</p>
+        <div class="callout">
+          <strong>Σημείωση:</strong> Διεθνείς επιχειρηματικές ενέργειες περιλαμβάνουν εμπόριο προϊόντων, υπηρεσιών, επενδύσεις χαρτοφυλακίου και άμεσες ξένες επενδύσεις.
+        </div>
       </section>
 
-      <section id="international">
+      <section id="exports-as-internationalisation">
         <h2>1.2 Οι εξαγωγές ως μέσο διεθνοποίησης</h2>
-        <p>Οι επιχειρήσεις χρησιμοποιούν τις εξαγωγές για να διεισδύσουν σε ξένες αγορές, να αποκτήσουν εμπειρία και να αξιοποιήσουν πλεονεκτήματα κόστους ή τεχνολογίας. Οι εξαγωγές αποτελούν το πρώτο στάδιο στη διαδικασία διεθνοποίησης πριν την εγκατάσταση παραγωγικών μονάδων στο εξωτερικό.</p>
+        <p>Η διεθνής επέκταση γίνεται είτε μέσω εξαγωγών (προϊόν/υπηρεσία παραμένει στην πατρίδα) είτε μέσω διεθνούς παραγωγής (παραγωγή στο εξωτερικό). Οι εξαγωγές είναι συχνά το πρώτο βήμα, προσφέροντας σταδιακή πρόσβαση σε ξένες αγορές με μικρότερη αρχική δέσμευση κεφαλαίων.</p>
+        <h3>Κατηγοριοποίηση εξαγωγών</h3>
+        <ul>
+          <li>Υλικά αγαθά</li>
+          <li>Άυλα αγαθά/υπηρεσίες</li>
+          <li>Άμεσες vs Έμμεσες εξαγωγές (διάκριση με βάση τον έλεγχο/διαμεσολάβηση).</li>
+        </ul>
       </section>
 
       <section id="motives">
         <h2>1.3 Κίνητρα για εξαγωγικές δραστηριότητες</h2>
-        <p>Τα κίνητρα διακρίνονται σε ενδογενή και εξωγενή. Ενδογενή είναι όσα προέρχονται από το εσωτερικό της επιχείρησης, όπως η ανάγκη αύξησης κερδοφορίας ή η αξιοποίηση πλεονάζουσας παραγωγικής ικανότητας. Εξωγενή είναι τα ερεθίσματα που προκύπτουν από το περιβάλλον, όπως ο κορεσμός της τοπικής αγοράς ή οι νέες διεθνείς ευκαιρίες.</p>
+        <div class="two-col">
+          <div>
+            <h3>Ενδογενή κίνητρα</h3>
+            <ul>
+              <li>Οικονομίες κλίμακας</li>
+              <li>Διασπορά ρίσκου</li>
+              <li>Εξισορρόπηση εποχικότητας</li>
+              <li>Αναξιοποίητη παραγωγική ικανότητα</li>
+              <li>Ποιότητα/τεχνολογία</li>
+              <li>Ικανότητα μάρκετινγκ/διοίκησης</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Εξωγενή κίνητρα</h3>
+            <ul>
+              <li>Κορεσμός/μέγεθος εγχώριας αγοράς</li>
+              <li>Έντονος εγχώριος ανταγωνισμός</li>
+              <li>Ευκαιρίες από πολιτικές/συμφωνίες</li>
+              <li>Επαφές ξένων πελατών</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section id="methods">
-        <h2>1.4 Είδη και Μέθοδοι άσκησης εξαγωγών</h2>
-        <p>Διακρίνουμε τις άμεσες και τις έμμεσες εξαγωγές. Στις άμεσες, η επιχείρηση οργανώνει μόνη της τη διαδικασία, αποκτώντας μεγαλύτερο έλεγχο αλλά αναλαμβάνοντας και υψηλότερο ρίσκο. Στις έμμεσες, χρησιμοποιεί μεσάζοντες ή εταιρείες εξαγωγικού εμπορίου, μειώνοντας το ρίσκο αλλά και τον έλεγχο της αγοράς-στόχου.</p>
+        <h2>1.4 Είδη και μέθοδοι άσκησης εξαγωγών</h2>
+        <h3>Άμεσες Εξαγωγές</h3>
+        <p>Η επιχείρηση αναλαμβάνει όλες τις εξαγωγικές λειτουργίες (πελάτες, φερεγγυότητα, logistics, πληρωμές).</p>
+        <h4>Μέθοδοι</h4>
+        <ul>
+          <li>Διεύθυνση Εξαγωγών</li><li>Εκπρόσωπος/Agent</li><li>Διανομέας</li>
+          <li>Παράρτημα Πωλήσεων</li><li>Θυγατρική Πωλήσεων</li>
+          <li>Ενδοομιλικές μετακινήσεις</li><li>Παράλληλο εμπόριο</li>
+        </ul>
+        <h3>Έμμεσες Εξαγωγές</h3>
+        <ul>
+          <li>Home Country Export Agents / Merchants</li>
+          <li>Export Management Companies</li>
+          <li>International Trading Companies</li>
+        </ul>
       </section>
 
-      <section id="proscons">
-        <h2>1.5 Πλεονεκτήματα και Κίνδυνοι</h2>
-        <p>Τα βασικά πλεονεκτήματα των εξαγωγών περιλαμβάνουν την πρόσβαση σε νέες αγορές, την αξιοποίηση οικονομιών κλίμακας και την ενίσχυση της ανταγωνιστικότητας. Οι κίνδυνοι αφορούν δασμολογικούς και μη τελωνειακούς φραγμούς, συναλλαγματικές διακυμάνσεις, πολιτική αστάθεια και αυξημένες απαιτήσεις τεχνικής υποστήριξης.</p>
+      <section id="advantages">
+        <h2>1.5 Πλεονεκτήματα και Μειονεκτήματα εξαγωγικού εμπορίου</h2>
+        <h3>Πλεονεκτήματα</h3>
+        <ul>
+          <li>Πρόσβαση σε νέες αγορές</li><li>Αξιοποίηση δυναμικότητας</li><li>Δοκιμή αγοράς</li>
+          <li>Διασπορά ρίσκου/εποχικότητας</li><li>Ανταγωνιστικότητα & τεχνογνωσία</li>
+        </ul>
+        <h3>Μειονεκτήματα / Κίνδυνοι</h3>
+        <ul>
+          <li>Κόστη μεταφοράς/διανομής</li><li>Δασμοί/τεχνικοί φραγμοί</li>
+          <li>After-sales δυσκολίες</li><li>Πνευματική ιδιοκτησία</li>
+          <li>Λιγότερος έλεγχος σε έμμεσες εξαγωγές</li><li>Πολιτικοί/συναλλαγματικοί κίνδυνοι</li>
+        </ul>
       </section>
 
-      <section id="summary">
+      <section id="recap">
         <h2>1.6 Ανακεφαλαίωση — Κύρια Σημεία</h2>
-        <p>Η επιτυχής εξαγωγική στρατηγική απαιτεί γνώσεις διαδικασιών, σωστή επιλογή μεθόδου, διαχείριση κινδύνων και συνεργασία με δημόσιους φορείς και επιμελητήρια. Η χρήση ΤΠΕ ενισχύει την παραγωγικότητα και μειώνει τα εμπόδια.</p>
+        <ul>
+          <li>Διάκριση άμεσων/έμμεσων εξαγωγών</li>
+          <li>Ενδογενή vs εξωγενή κίνητρα</li>
+          <li>Πλεονεκτήματα/μειονεκτήματα</li>
+          <li>Έμφαση σε ΜΜΕ & ΤΠΕ</li>
+        </ul>
       </section>
 
-      <section id="faq">
-        <h2>Ερωτήσεις ΝΑΙ/ΟΧΙ με σύντομη αιτιολόγηση</h2>
-        <!-- Ερωτήσεις του 1* ενσωματωμένες αυτούσιες -->
-        <div class="faq-ans"><strong>Ερ.:</strong> Οι εξαγωγές αποτελούν τη βασική μορφή διεθνοποίησης των επιχειρήσεων;<br><strong>Απάντηση:</strong> ΝΑΙ<div class="justification">Οι εξαγωγές αποτελούν το πρώτο και πιο άμεσο βήμα διεθνοποίησης — §1.1.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Οι έμμεσες εξαγωγές πραγματοποιούνται χωρίς χρήση μεσαζόντων;<br><strong>Απάντηση:</strong> ΟΧΙ<div class="justification">Χρησιμοποιούν τρίτους φορείς όπως εταιρείες διαχείρισης εξαγωγών — §1.4.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Οι άμεσες εξαγωγές επιτρέπουν μεγαλύτερο έλεγχο αλλά και υψηλότερο ρίσκο;<br><strong>Απάντηση:</strong> ΝΑΙ<div class="justification">Η επιχείρηση αναλαμβάνει εξ ολοκλήρου τη διαδικασία — §1.4.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Η διεθνοποίηση μπορεί να προκύψει και χωρίς εξαγωγές;<br><strong>Απάντηση:</strong> ΝΑΙ<div class="justification">Μπορεί να γίνει μέσω άμεσων ξένων επενδύσεων ή θυγατρικών — §1.2.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Τα ενδογενή κίνητρα είναι παράγοντες του εξωτερικού περιβάλλοντος;<br><strong>Απάντηση:</strong> ΟΧΙ<div class="justification">Ενδογενή είναι τα εσωτερικά κίνητρα της επιχείρησης — §1.3.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Η κορεσμένη τοπική αγορά είναι εξωγενές κίνητρο για εξαγωγή;<br><strong>Απάντηση:</strong> ΝΑΙ<div class="justification">Προκύπτει από εξωτερικές συνθήκες αγοράς — §1.3.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Η εξισορρόπηση της εποχικότητας είναι εξωγενές κίνητρο;<br><strong>Απάντηση:</strong> ΟΧΙ<div class="justification">Σχετίζεται με εσωτερική στρατηγική παραγωγής — §1.3.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Η χρήση τεχνολογιών πληροφορικής διευκολύνει την εξαγωγική δραστηριότητα;<br><strong>Απάντηση:</strong> ΝΑΙ<div class="justification">Οι ΤΠΕ μειώνουν κόστος και ενισχύουν προσβασιμότητα — §1.3.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Η διεύθυνση εξαγωγών ανήκει στις έμμεσες μεθόδους;<br><strong>Απάντηση:</strong> ΟΧΙ<div class="justification">Είναι άμεση μέθοδος οργανωμένη εντός της επιχείρησης — §1.4.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Ο αντιπρόσωπος στη χώρα στόχο αμείβεται με προμήθεια;<br><strong>Απάντηση:</strong> ΝΑΙ<div class="justification">Κλασική πρακτική άμεσων εξαγωγών — §1.4.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Οι διανομείς λειτουργούν ως αντιπρόσωποι χωρίς να αγοράζουν το προϊόν;<br><strong>Απάντηση:</strong> ΟΧΙ<div class="justification">Οι διανομείς αγοράζουν και μεταπωλούν — §1.4.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Η παράλληλη εμπορία είναι πλήρως νόμιμη και χωρίς κινδύνους;<br><strong>Απάντηση:</strong> ΟΧΙ<div class="justification">Ενέχει νομικούς και εμπορικούς κινδύνους — §1.4.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Οι έμμεσες εξαγωγές περιλαμβάνουν Export Management Companies;<br><strong>Απάντηση:</strong> ΝΑΙ<div class="justification">Πρόκειται για βασικό τύπο έμμεσης μεθόδου — §1.4.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Το κύριο πλεονέκτημα των άμεσων εξαγωγών είναι η ανεξαρτησία από τρίτους;<br><strong>Απάντηση:</strong> ΝΑΙ<div class="justification">Εξασφαλίζει πλήρη έλεγχο στις λειτουργίες — §1.4.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Οι εξαγωγές δεν προσφέρουν οικονομίες κλίμακας;<br><strong>Απάντηση:</strong> ΟΧΙ<div class="justification">Η αυξημένη παραγωγή βελτιώνει αποδοτικότητα — §1.3.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Η πολιτική αστάθεια μπορεί να αποτελέσει εμπόδιο στις εξαγωγές;<br><strong>Απάντηση:</strong> ΝΑΙ<div class="justification">Πρόκειται για εξωτερικό παράγοντα κινδύνου — §1.5.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Οι δασμοί και ποσοστώσεις είναι παραδείγματα μη τελωνειακών φραγμών;<br><strong>Απάντηση:</strong> ΟΧΙ<div class="justification">Οι δασμοί είναι τελωνειακοί· μη τελωνειακοί είναι τεχνικά πρότυπα — §1.4.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Η πλημμελής τεχνική υποστήριξη μπορεί να μειώσει την ανταγωνιστικότητα;<br><strong>Απάντηση:</strong> ΝΑΙ<div class="justification">Αποτελεί μειονέκτημα εξαγωγικού εμπορίου — §1.5.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Η συλλογή στατιστικών δεδομένων είναι άσχετη με την εξαγωγική πολιτική;<br><strong>Απάντηση:</strong> ΟΧΙ<div class="justification">Απαραίτητη για σχεδιασμό πολιτικών στήριξης — §1.6.</div></div>
-        <div class="faq-ans"><strong>Ερ.:</strong> Η συνεργασία με κρατικούς φορείς και συλλόγους αυξάνει την επιτυχία εξαγωγών;<br><strong>Απάντηση:</strong> ΝΑΙ<div class="justification">Προτείνεται ως πρακτική ενίσχυσης επιτυχίας — §1.6.</div></div>
+      <!-- ΝΕΑ ΕΝΟΤΗΤΑ: ΕΡΩΤΗΣΕΙΣ ΝΑΙ/ΟΧΙ -->
+      <section id="qa-ch1" class="qa">
+        <h2>Ερωτήσεις Κατανόησης — Κεφάλαιο 1 (ΝΑΙ/ΟΧΙ)</h2>
+        <p class="small">Οι ερωτήσεις προέρχονται από το συνοδευτικό αρχείο ερωτήσεων και απαντώνται βάσει της παραπάνω περίληψης.</p>
+
+        <div class="q">1) Η πολυπλοκότητα του εξαγωγικού εμπορίου έχει μεγεθυνθεί τα τελευταία χρόνια;</div>
+        <div class="ans"><span class="badge yes">ΣΩΣΤΗ: ΝΑΙ</span><div class="why">Η παγκοσμιοποίηση, τα κανονιστικά και τα logistics αυξάνουν την πολυπλοκότητα (βλ. 1.1–1.2).</div></div>
+
+        <div class="q">2) Η διεθνοποίηση των αγορών συνέβαλε στην πολυπλοκότητα του εξαγωγικού εμπορίου;</div>
+        <div class="ans"><span class="badge yes">ΣΩΣΤΗ: ΝΑΙ</span><div class="why">Περισσότερες αγορές/κανόνες → πιο σύνθετο πλαίσιο (1.1–1.2).</div></div>
+
+        <div class="q">3) Η διεθνής επιχειρηματική δραστηριότητα αφορά μόνο ιδιωτικές εταιρείες;</div>
+        <div class="ans"><span class="badge no">ΣΩΣΤΗ: ΟΧΙ</span><div class="why">Εμπλέκονται και δημόσιοι/θεσμικοί φορείς, επενδύσεις κ.ά. (1.1).</div></div>
+
+        <div class="q">4) Οι εξαγωγές θεωρούνται η απλούστερη στρατηγική διεθνούς επέκτασης μιας επιχείρησης;</div>
+        <div class="ans"><span class="badge yes">ΣΩΣΤΗ: ΝΑΙ</span><div class="why">Είναι συχνά το πρώτο/πιο προσιτό βήμα διεθνοποίησης (1.2).</div></div>
+
+        <div class="q">5) Η ειδοποιός διαφορά μεταξύ εξαγωγών και διεθνούς παραγωγής είναι το πού παράγονται τα προϊόντα;</div>
+        <div class="ans"><span class="badge yes">ΣΩΣΤΗ: ΝΑΙ</span><div class="why">Στις εξαγωγές η παραγωγή παραμένει εντός χώρας, στη διεθνή παραγωγή στο εξωτερικό (1.2).</div></div>
+
+        <div class="q">6) Οι εξαγωγές μπορούν να διακριθούν σε άμεσες και έμμεσες με βάση τα αγαθά που πραγματεύονται;</div>
+        <div class="ans"><span class="badge no">ΣΩΣΤΗ: ΟΧΙ</span><div class="why">Η διάκριση αφορά τον τρόπο/έλεγχο και τους διαμεσολαβητές (1.4).</div></div>
+
+        <div class="q">7) Η ύπαρξη πλεονάζουσας παραγωγικής δυναμικότητας θεωρείται εξωγενές κίνητρο για εξαγωγές;</div>
+        <div class="ans"><span class="badge no">ΣΩΣΤΗ: ΟΧΙ</span><div class="why">Είναι ενδογενές κίνητρο (εσωτερικός πόρος της επιχείρησης) (1.3.1).</div></div>
+
+        <div class="q">8) Η διαφοροποίηση των επιχειρηματικών κινδύνων αποτελεί ενδογενές κίνητρο για εξαγωγές;</div>
+        <div class="ans"><span class="badge yes">ΣΩΣΤΗ: ΝΑΙ</span><div class="why">Σχετίζεται με στρατηγική διαχείριση ρίσκου της ίδιας της επιχείρησης (1.3.1).</div></div>
+
+        <div class="q">9) Το περιορισμένο μέγεθος της εγχώριας αγοράς αποτελεί εξωγενές κίνητρο;</div>
+        <div class="ans"><span class="badge yes">ΣΩΣΤΗ: ΝΑΙ</span><div class="why">Προέρχεται από το εξωτερικό περιβάλλον/ζήτηση (1.3.2).</div></div>
+
+        <div class="q">10) Οι εξαγωγές αποτελούν πάντα το πρώτο βήμα πριν από τη διεθνή παραγωγή;</div>
+        <div class="ans"><span class="badge no">ΣΩΣΤΗ: ΟΧΙ</span><div class="why">Συχνό αλλά όχι «πάντα»· η πορεία διεθνοποίησης ποικίλλει (1.2).</div></div>
+
+        <div class="q">11) Οι άμεσες εξαγωγές σημαίνουν ότι η επιχείρηση κρατά όλο τον έλεγχο της εξαγωγικής λειτουργίας;</div>
+        <div class="ans"><span class="badge yes">ΣΩΣΤΗ: ΝΑΙ</span><div class="why">Ο ορισμός των άμεσων εξαγωγών (1.4.1).</div></div>
+
+        <div class="q">12) Στις έμμεσες εξαγωγές, ο έλεγχος και οι λειτουργίες περνούν σε τρίτους/μεσάζοντες;</div>
+        <div class="ans"><span class="badge yes">ΣΩΣΤΗ: ΝΑΙ</span><div class="why">Χρήση EMC, traders, agents κ.λπ. (1.4.2).</div></div>
+
+        <div class="q">13) Το after-sales δεν επηρεάζεται από την επιλογή μεθόδου εξαγωγής (άμεση/έμμεση);</div>
+        <div class="ans"><span class="badge no">ΣΩΣΤΗ: ΟΧΙ</span><div class="why">Σε έμμεσες εξαγωγές δυσκολεύει η απευθείας υποστήριξη (1.5.2).</div></div>
+
+        <div class="q">14) Το internet/ΤΠΕ μειώνουν κόστος αλλά δεν βελτιώνουν τις δυνατότητες μάρκετινγκ;</div>
+        <div class="ans"><span class="badge no">ΣΩΣΤΗ: ΟΧΙ</span><div class="why">Βελτιώνουν έρευνα αγοράς, επικοινωνία, προώθηση (1.1–1.2).</div></div>
+
+        <div class="q">15) Ο κορεσμός της εγχώριας αγοράς λειτουργεί ως κίνητρο για εξωστρέφεια;</div>
+        <div class="ans"><span class="badge yes">ΣΩΣΤΗ: ΝΑΙ</span><div class="why">Τυπικό εξωγενές κίνητρο (1.3.2).</div></div>
+
+        <div class="q">16) Ο «διανομέας» στις άμεσες εξαγωγές λειτουργεί πάντα ως μεσάζων χωρίς να αγοράζει το προϊόν;</div>
+        <div class="ans"><span class="badge no">ΣΩΣΤΗ: ΟΧΙ</span><div class="why">Ο διανομέας συνήθως αγοράζει και μεταπωλεί (1.4.1).</div></div>
+
+        <div class="q">17) Στις άμεσες εξαγωγές η επιχείρηση χρησιμοποιεί εγχώρια εταιρεία διαμεσολάβησης που αναλαμβάνει για λογαριασμό της;</div>
+        <div class="ans"><span class="badge no">ΣΩΣΤΗ: ΟΧΙ</span><div class="why">Αυτό περιγράφει έμμεση εξαγωγή (EMC/merchant) (1.4.2).</div></div>
+
+        <div class="q">18) Οι δασμοί και τα τεχνικά πρότυπα αποτελούν τυπικούς φραγμούς για τις εξαγωγές;</div>
+        <div class="ans"><span class="badge yes">ΣΩΣΤΗ: ΝΑΙ</span><div class="why">Τελωνειακοί/μη-τελωνειακοί φραγμοί (1.5.2).</div></div>
+
+        <div class="q">19) Οι έμμεσες εξαγωγές συνεπάγονται πάντοτε υψηλότερα περιθώρια κέρδους για τον παραγωγό;</div>
+        <div class="ans"><span class="badge no">ΣΩΣΤΗ: ΟΧΙ</span><div class="why">Υπάρχουν προμήθειες/μικρότερος έλεγχος ⇒ συνήθως χαμηλότερο περιθώριο (1.4.2, 1.5.2).</div></div>
+
+        <div class="q">20) Η διάκριση ανάμεσα σε άμεσες και έμμεσες εξαγωγές εξαρτάται από τον βαθμό ελέγχου της επιχείρησης στη διαδικασία;</div>
+        <div class="ans"><span class="badge yes">ΣΩΣΤΗ: ΝΑΙ</span><div class="why">Ορίζεται από έλεγχο/κανάλια διανομής (1.4).</div></div>
       </section>
     </main>
+
+    <a href="index.html" class="back-button">⟵ Επιστροφή στο μενού</a>
   </div>
 </body>
 </html>
